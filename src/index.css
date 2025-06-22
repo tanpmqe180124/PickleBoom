@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 220.31 89.86% 57.45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hl: 220.31 89.86% 70%;
+
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 12%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 66%;
+    --destructive-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+  }
+
+  .dark {
+    --primary: 220.31 100% 70%;
+    --primary-foreground: 0 0% 0%;
+
+    --accent: 0 0% 100%;
+    --accent-foreground: 220.31 89.86% 57.45%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 0 85% 90%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+  }
+  body {
+    @apply font-sans text-base;
+  }
+  span {
+    @apply font-sans text-[16px];
+  }
+
+  @layer utilities {
+    .bg-custom-gradient {
+      background: linear-gradient(
+        180deg,
+        rgba(49, 113, 244, 1) 9%,
+        rgba(255, 255, 255, 1) 42%
+      );
+    }
+    .bg-custom-gradient-header {
+      background: linear-gradient(
+        180deg,
+        rgba(49, 113, 244, 1) 2%,
+        rgba(107, 152, 242, 1) 70%,
+        rgba(77, 69, 69, 1) 100%
+      );
+    }
+  }
+  .nav-underline-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s ease-in-out;
+  }
+
+  .nav-underline-effect:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.clip-diagonal-left {
+  clip-path: polygon(0 0, 40% 0, 0% 100%);
+}
+
+.clip-diagonal-right {
+  clip-path: polygon(100% 0, 100% 100%, 30% 100%);
+}
+
+.clip-middle {
+  clip-path: polygon(40% 0, 100% 0%, 100% 10%, 30% 100%, 0% 100%, 0% 90%);
+}
