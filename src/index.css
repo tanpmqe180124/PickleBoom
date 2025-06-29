@@ -1,12 +1,73 @@
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+body {
+  font-family: 'Inter', 'Roboto', 'Montserrat', 'Open Sans', Arial, sans-serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --primary: 220.31 89.86% 57.45%;
+    /* Chủ đạo: #2F3C54 (HSL: 218, 29%, 25%) */
+    --primary: 218 29% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-hl: 220.31 89.86% 70%;
+    --primary-hl: 36 96% 70%; /* #FCBA6B */
 
     --accent: 0 0% 100%;
     --accent-foreground: 0 0% 12%;
@@ -25,8 +86,9 @@
   }
 
   .dark {
-    --primary: 220.31 100% 70%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 218 29% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hl: 36 96% 70%;
 
     --accent: 0 0% 100%;
     --accent-foreground: 220.31 89.86% 57.45%;
@@ -54,8 +116,8 @@
     .bg-custom-gradient {
       background: linear-gradient(
         180deg,
-        rgba(49, 113, 244, 1) 9%,
-        rgba(255, 255, 255, 1) 42%
+        #2F3C54 0%,
+        #f1f1e6 100%
       );
     }
     .bg-custom-gradient-header {

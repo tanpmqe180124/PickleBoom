@@ -9,36 +9,33 @@ import { Check, Clock, Phone } from 'lucide-react';
 
 export const blogCardData: BlogCard[] = [
   {
-    img: '/img/blog1.png',
-    content:
-      'Bạn đã biết những bài tập khởi động trong cầu lông nếu tập đúng kỹ thuật có thể  hạn chế chấn thương? …',
-    title: '10 bài tập khởi động trong cầu lông giúp tránh chấn thương',
+    img: '/img/blog.jpg',
+    title: 'Pickleball là gì? Vì sao môn thể thao này đang bùng nổ tại Việt Nam?',
+    content: 'Từ sân chơi cộng đồng tại Mỹ, Pickleball đang trở thành xu hướng mới cho giới trẻ Việt. Cùng tìm hiểu vì sao nó lại hấp dẫn đến vậy!',
     footer: {
       icon: CalendarDays,
-      contentFooter: 'Bản tin cầu lông',
+      contentFooter: 'Kiến thức cơ bản',
       date: '2025-06-20T08:30:00Z',
     },
   },
   {
-    img: '/img/blog1.png',
-    content:
-      'Bạn đã biết những bài tập khởi động trong cầu lông nếu tập đúng kỹ thuật có thể  hạn chế chấn thương? …',
-    title: '10 bài tập khởi động trong cầu lông giúp tránh chấn thương',
+    img: '/img/blog.jpg',
+    title: 'Chọn vợt Pickleball: Đâu là lựa chọn phù hợp với bạn?',
+    content: 'Bạn đang phân vân giữa các dòng vợt khác nhau? Tìm ngay bí quyết chọn vợt đúng theo phong cách chơi của bạn!',
     footer: {
       icon: CalendarDays,
-      contentFooter: 'Bản tin cầu lông',
-      date: '2025-06-20T08:30:00Z',
+      contentFooter: 'Trang bị & kỹ thuật',
+      date: '2025-06-21T09:00:00Z',
     },
   },
   {
-    img: '/img/blog1.png',
-    content:
-      'Bạn đã biết những bài tập khởi động trong cầu lông nếu tập đúng kỹ thuật có thể  hạn chế chấn thương? …',
-    title: '10 bài tập khởi động trong cầu lông giúp tránh chấn thương',
+    img: '/img/blog.jpg',
+    title: 'Hướng dẫn người mới: Quy tắc cơ bản khi chơi Pickleball',
+    content: 'Đừng ngại khám phá môn thể thao mới! Cùng tìm hiểu những quy tắc đơn giản để bắt đầu chơi ngay hôm nay.',
     footer: {
       icon: CalendarDays,
-      contentFooter: 'Bản tin cầu lông',
-      date: '2025-06-20T08:30:00Z',
+      contentFooter: 'Dành cho người mới',
+      date: '2025-06-22T10:15:00Z',
     },
   },
 ];
@@ -63,7 +60,7 @@ export const elementorList: ElementorInline[] = [
 
 export const elementorNotIcon: ElementorInline[] = [
   {
-    title: 'SÂN CẦU MÁY LẠNH',
+    title: 'SÂN PICKLEBALL',
     path: '/',
   },
   {
@@ -83,36 +80,36 @@ export const imageHouse = {
 export const logoHomeItems: LogoItems[] = [
   {
     img: '/img/Icon-Line_13.png',
-    title: '19 sân, 4 chi nhánh, có phòng riêng',
+    title: 'Sân Pickleball chuẩn quốc tế',
   },
   {
     img: '/img/Icon-Line_16.png',
-    title: 'Mở 24/7, máy lạnh',
+    title: 'Tổ hợp café & thể thao tích hợp',
   },
   {
     img: '/img/Icon-Line_17.png',
-    title: 'Free giữ xe, khăn, tắm',
+    title: 'Đặt sân – đăng ký chơi dễ dàng online',
   },
   {
     img: '/img/Icon-Line_18.png',
-    title: 'Free mượn vợt, trà đá',
+    title: 'Miễn phí tiện ích & hoạt động cộng đồng',
   },
 ];
 
 export const courtPricing: CourtPricingItem[] = [
   {
-    content: 'Mở 24/7, máy lạnh, phòng riêng',
+    content: 'Sân chuẩn quốc tế – mặt sân acrylic đa lớp',
   },
   {
-    content: 'Free mượn vợt, trà đá',
+    content: 'Có phòng riêng – phù hợp nhóm bạn & gia đình',
   },
   {
-    content: 'Free giữ xe, khăn, tắm',
+    content: 'Đặt lịch – thanh toán online nhanh chóng',
   },
   {
-    content: 'Luôn vệ sinh sân trước khi nhận sân',
+    content: 'Nhân viên hỗ trợ thân thiện, sẵn sàng hướng dẫn',
   },
   {
-    content: 'Nhân viên trẻ, đẹp',
+    content: 'Vệ sinh & kiểm tra sân định kỳ mỗi ca chơi ',
   },
 ];
