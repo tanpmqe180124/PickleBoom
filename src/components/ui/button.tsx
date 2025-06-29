@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           'bg-primary text-primary-foreground shadow hover:bg-primary/90',
         vivid:
-          'bg-primary brightness-110 z-20 text-primary-foreground hover:bg-primary/60 hover:ring-primary-foreground/40',
+          'bg-primary text-primary-foreground hover:brightness-110 z-20 hover:ring-primary-foreground/40',
 
         destructive:
           'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',

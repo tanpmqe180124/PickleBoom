@@ -1,5 +1,4 @@
 import { NavigationMenuLink } from '@/components/ui/navigation-menu';
-
 import Header from '@/components/Header';
 import {
   navigateMenu,

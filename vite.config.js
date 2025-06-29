@@ -1,24 +1,14 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import path from 'path';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import path from 'path'
 
+// https://vite.dev/config/
 export default defineConfig({
-  base: '/',
-  plugins: [
-    react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'public/_redirects',
-          dest: '.' // Copy vào thư mục dist/
-        }
-      ]
-    }),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src'), 
+      
     },
   },
 });

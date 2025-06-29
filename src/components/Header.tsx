@@ -7,14 +7,15 @@ import {
 } from '@/constant/elementor-data';
 
 import { UserRound } from 'lucide-react';
-import { BlogCard } from './Blog';
 import { Button } from './ui/button';
+import { Link } from 'react-router-dom'
+import { BlogCard } from './Blog';
 
 const Header = () => {
   return (
-    <header className="h-[100px] text-primary-foreground">
-      <div className="bg-custom-gradient w-full py-2">
-        <div className="my-3 mr-2 flex items-center justify-center divide-x divide-muted-foreground">
+    <header className="h-[100px] border-b bg-primary text-primary-foreground">
+      <div className="w-full py-3">
+        <div className="mr-2 flex items-center justify-center divide-x divide-muted-foreground">
           {elementorList.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -29,7 +30,7 @@ const Header = () => {
         </div>
 
         <div className="flex w-full flex-wrap">
-          <div className="mb-4 grid w-full grid-cols-12">
+          <div className="grid w-full grid-cols-12">
             <div className="col-span-3 flex items-center justify-center">
               <img
                 src="/img/Huawei-Symbol.png"
@@ -48,25 +49,34 @@ const Header = () => {
             </div>
 
             <div className="col-span-3 flex items-center justify-center space-x-4">
-              <Button variant="vivid">Đặt lịch ngay</Button>
+              <Link to="/branch">
+                <Button
+                  variant="ghost"
+                  className="border-2 border-primary bg-gradient-to-r from-white via-blue-50 to-white text-primary font-bold px-7 py-2 rounded-full shadow-md transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary-dark hover:scale-105 hover:shadow-xl focus:bg-primary focus:text-white focus:shadow-lg"
+                >
+                  Đặt lịch ngay
+                </Button>
+              </Link>
 
-              <Button
-                asChild
-                variant="ghost"
-                className="p-0 text-foreground hover:bg-primary/10"
-              >
-                <div className="group flex cursor-pointer flex-col items-center gap-2">
-                  <UserRound
-                    className="text-muted-foreground"
-                    strokeWidth={1}
-                    color="#000000"
-                  />
+              <Link to="/login">
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="p-0 text-white font-bold rounded-full transition-all duration-200 hover:bg-gradient-to-r hover:from-primary hover:to-blue-400 hover:text-white hover:scale-105 hover:shadow-xl focus:bg-primary focus:text-white focus:shadow-lg"
+                >
+                  <div className="group flex cursor-pointer flex-col items-center gap-2 px-5 py-2">
+                    <UserRound
+                      className="text-muted-foreground group-hover:text-white transition-colors"
+                      strokeWidth={1}
+                      color="#000000"
+                    />
 
-                  <span className="underline-offset-4 transition-all group-hover:underline">
-                    Login
-                  </span>
-                </div>
-              </Button>
+                    <span className="underline-offset-4 transition-all group-hover:underline group-hover:text-white">
+                      Đăng nhập
+                    </span>
+                  </div>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -81,7 +91,7 @@ const Header = () => {
           >
             <div className="clip-diagonal-left absolute inset-0 bottom-10 z-0 bg-black/60"></div>
             <div className="clip-diagonal-right absolute inset-0 top-10 z-0 bg-cyan-700/80"></div>
-            <div className="clip-middle absolute inset-0 z-0 bg-primary/90"></div>
+            <div className="clip-middle absolute inset-0 z-0 bg-primary/60"></div>
 
             <div className="absolute right-1/4 z-10 flex h-full max-w-[25%] items-center justify-center">
               <img
@@ -93,36 +103,38 @@ const Header = () => {
             <div className="absolute left-40 top-1/2 z-20 -translate-y-1/2">
               <div className="max-w-xl space-y-4 text-left">
                 <h3 className="text-3xl font-semibold leading-snug">
-                  Hệ thống sân cầu lông máy lạnh Ways Station mở cửa 24/7 đầu
-                  tiên tại Việt Nam
+                  Chào mừng đến với Pickle Boom - Tổ hợp Pickleball & Café đầu tiên tại Quy Nhơn
                 </h3>
                 <p className="text-lg font-medium leading-relaxed">
-                  Sân cầu lông đẳng cấp mới, dịch vụ khách hàng tuyệt hảo, phục
-                  vụ các Lông thủ Sài Thành, hiện đã có mặt tại Quận Gò Vấp và
-                  sẵn sàng phủ sóng khắp Sài Thành.
+                  Pickle Boom là mô hình tiên phong tại Quy Nhơn kết hợp giữa thể thao Pickleball, không gian café hiện đại, và cộng đồng người chơi năng động. Tại đây, bạn không chỉ vận động nhẹ nhàng, thư giãn sau giờ làm, mà còn dễ dàng kết nối bạn bè, gia nhập hội nhóm, và tận hưởng một phong cách sống hiện đại – lành mạnh – cá nhân hóa.
                 </p>
+                <Button asChild variant="vivid" className="px-8 py-3 text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:bg-primary/80 hover:scale-105">
+                  <Link to="/branch">Đặt lịch ngay</Link>
+                </Button>
               </div>
             </div>
           </div>
         </div>
-        <div></div>
-        <div className="grid grid-cols-2 gap-14 bg-primary px-20 py-4 text-gray-700 md:grid-cols-4">
+
+        <div className="grid grid-cols-2 gap-4 bg-[#3e4550] p-4 md:grid-cols-4">
           {logoHomeItems.map((item, index) => (
             <div
               key={index}
-              className="mt-10 flex flex-col items-center justify-center gap-4 rounded-xl bg-white py-4 text-center shadow-lg transition duration-300 hover:scale-105"
+              className="flex flex-col items-center justify-center rounded-xl bg-white/10 p-4 text-center shadow-lg transition duration-300 hover:scale-105"
             >
               <img
                 src={item.img}
                 alt={item.title}
-                className="h-10 w-12 object-contain"
+                className="mb-3 h-16 w-16 object-contain"
               />
-              <span className="text-sm font-medium">{item.title}</span>
+              <span className="text-sm font-medium text-white">
+                {item.title}
+              </span>
             </div>
           ))}
         </div>
-        <div className="bg-custom-gradient text w-full p-6 text-accent-foreground">
-          <div className="mt-20 flex w-full items-center justify-center">
+        <div className="bg-custom-gradient w-full p-6">
+          <div className="mt-52 flex w-full items-center justify-center">
             <div className="flex w-full max-w-sm flex-col items-center space-y-5 rounded-2xl bg-white p-6 text-center shadow-lg">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-800">
                 Bảng giá sân

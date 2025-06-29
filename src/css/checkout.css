@@ -25,6 +25,7 @@
   color: #1f2937; /* gray-800 */
 }
 
+
 .checkout-form input,
 .checkout-form textarea {
   width: 100%;
@@ -34,9 +35,7 @@
   font-size: 14px;
   color: #111827;
   font-family: inherit;
-  transition:
-    border 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .checkout-form input:focus,
@@ -61,11 +60,15 @@
   font-size: 14px;
   cursor: pointer;
   width: fit-content;
-  transition: background 0.2s ease;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.next-button-inline:hover {
-  background: #1d4ed8;
+.next-button-inline:hover, .next-button-inline:focus {
+  background: #e0e0e0;
+  color: #2563eb;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: scale(1.03);
 }
 
 .back-button {
@@ -73,7 +76,7 @@
   align-items: center;
   gap: 6px;
   background-color: #f0f4ff; /* xanh rất nhạt */
-  color: #3b82f6; /* xanh nước biển vừa phải (blue-500) */
+  color: #3b82f6;            /* xanh nước biển vừa phải (blue-500) */
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -99,9 +102,7 @@
   font-size: 14px;
   cursor: pointer;
   width: fit-content;
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -115,8 +116,7 @@
     box-shadow: none;
   }
 
-  .booking-left,
-  .booking-middle {
+  .booking-left, .booking-middle {
     border: none;
     padding: 24px;
   }
@@ -171,9 +171,7 @@
   color: #111827;
   font-family: inherit;
   background-color: #fff;
-  transition:
-    border 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .checkout-form input:focus,
@@ -225,9 +223,7 @@
   cursor: pointer;
   width: 100%;
   margin-top: 20px;
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -241,8 +237,7 @@
     padding: 0;
   }
 
-  .booking-left,
-  .booking-middle {
+  .booking-left, .booking-middle {
     padding: 20px;
     border: none;
   }
