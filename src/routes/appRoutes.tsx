@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Home from '../pages/HomePage';
-import { Branch } from '@/pages/Branch';
+import { PlayerType } from '@/pages/PlayerType';
 import BookingDate from '@/pages/BookingDate';
 import CheckOut from '@/pages/CheckOut';
 import LoginPage from '../pages/LoginPage';
@@ -12,7 +12,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/branch" element={<Branch />} />
+      <Route path="/playertype" element={<PlayerType />} />
       <Route path="/booking/date" element={<BookingDate />} />
       <Route path="/booking/date/checkout" element={<CheckOut />} />
       <Route path="/login" element={<LoginPage />} />

@@ -1,3 +1,13 @@
+@keyframes fadeInUpSummary {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .booking-middle {
   flex: 1;
   padding: 40px;
@@ -62,6 +72,21 @@
   width: fit-content;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  animation: fadeInNextBtnCheckout 0.4s cubic-bezier(.4,2,.6,1) forwards;
+}
+@keyframes fadeInNextBtnCheckout {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
 }
 
 .next-button-inline:hover, .next-button-inline:focus {

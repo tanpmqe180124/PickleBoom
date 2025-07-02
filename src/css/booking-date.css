@@ -17,12 +17,12 @@
 }
 
 .booking-title {
-  color: #1d4ed8;
+  color: #2F3C54;
   font-weight: 700;
   font-size: 1.7rem;
   letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #1d4ed8 60%, #60a5fa 100%);
+  background: linear-gradient(90deg, #2F3C54 60%, #f1f1e6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -32,10 +32,10 @@
 .booking-left h2 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #2F3C54;
   margin-bottom: 0.5rem;
   letter-spacing: 0.1px;
-  background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+  background: linear-gradient(90deg, #2F3C54 60%, #f1f1e6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -96,8 +96,9 @@
 }
 
 .calendar-cell {
-  background: #f0f4ff;
+  background: #f1f1e6;
   border: none;
+  color: #2F3C54;
   border-radius: 8px;
   padding: 10px 0;
   cursor: pointer;
@@ -105,8 +106,8 @@
 }
 
 .calendar-cell.selected {
-  background: #0056ff;
-  color: white;
+  background: #2F3C54;
+  color: #f1f1e6;
   font-weight: bold;
 }
 
@@ -116,6 +117,21 @@
   padding: 24px;
   max-height: 600px;
   overflow-y: auto;
+  display: none;
+}
+.booking-time-panel.show {
+  display: block;
+  animation: fadeInRightBookingTime 0.5s cubic-bezier(.4,2,.6,1);
+}
+@keyframes fadeInRightBookingTime {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 .selected-day {
@@ -163,11 +179,26 @@
   font-weight: bold;
   cursor: pointer;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  animation: fadeInNextBtn 0.4s cubic-bezier(.4,2,.6,1) forwards;
+}
+@keyframes fadeInNextBtn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
 }
 
 .calendar-cell:hover {
-  background: #dbeafe; /* xanh nhạt hơn */
-  color: #003eb3;
+  background: #e5e5db; /* xanh nhạt hơn */
+  color: #2F3C54;
   font-weight: 600;
 }
 

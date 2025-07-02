@@ -79,19 +79,19 @@ export const imageHouse = {
 
 export const logoHomeItems: LogoItems[] = [
   {
-    img: '/img/Icon-Line_13.png',
+    img: '/img/logochuanquocte-Photoroom.png',
     title: 'Sân Pickleball chuẩn quốc tế',
   },
   {
-    img: '/img/Icon-Line_16.png',
+    img: '/img/ChatGPT Image 10_54_54 30 thg 6, 2025.png',
     title: 'Tổ hợp café & thể thao tích hợp',
   },
   {
-    img: '/img/Icon-Line_17.png',
+    img: '/img/logodatonline.png',
     title: 'Đặt sân – đăng ký chơi dễ dàng online',
   },
   {
-    img: '/img/Icon-Line_18.png',
+    img: '/img/f7385194-9937-4123-baf7-158c38e1e7ba.png',
     title: 'Miễn phí tiện ích & hoạt động cộng đồng',
   },
 ];

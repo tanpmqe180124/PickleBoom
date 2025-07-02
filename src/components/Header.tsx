@@ -33,8 +33,9 @@ const Header = () => {
           <div className="grid w-full grid-cols-12">
             <div className="col-span-3 flex items-center justify-center">
               <img
-                src="/img/Huawei-Symbol.png"
+                src="/img/brandlogo-Photoroom%20(1).png"
                 className="h-[63px] w-[112px] object-contain"
+                alt="Brand Logo"
               />
             </div>
 
@@ -68,7 +69,7 @@ const Header = () => {
             </div>
 
             <div className="col-span-3 flex items-center justify-center space-x-4">
-              <Link to="/branch">
+              <Link to="/playertype">
                 <Button
                   variant="ghost"
                   className="border-2 border-primary bg-gradient-to-r from-white via-blue-50 to-white text-primary font-bold px-7 py-2 rounded-full shadow-md transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary-dark hover:scale-105 hover:shadow-xl focus:bg-primary focus:text-white focus:shadow-lg min-w-[140px] flex items-center justify-center"
@@ -113,7 +114,7 @@ const Header = () => {
 
             <div className="absolute right-1/4 z-10 flex h-full max-w-[25%] items-center justify-center animate-fade-in-right" style={{ animationDelay: '0.7s', animationFillMode: 'both' }}>
               <img
-                src="/img/Layer-2.png"
+                src="/img/mainimg-removebg-preview.png"
                 className="h-full max-h-[100%] w-auto object-contain"
               />
             </div>
@@ -127,7 +128,7 @@ const Header = () => {
                   Pickle Boom là mô hình tiên phong tại Quy Nhơn kết hợp giữa thể thao Pickleball, không gian café hiện đại, và cộng đồng người chơi năng động. Tại đây, bạn không chỉ vận động nhẹ nhàng, thư giãn sau giờ làm, mà còn dễ dàng kết nối bạn bè, gia nhập hội nhóm, và tận hưởng một phong cách sống hiện đại – lành mạnh – cá nhân hóa.
                 </p>
                 <Button asChild variant="vivid" className="px-8 py-3 text-lg font-bold rounded-xl shadow-lg transition-all duration-200 hover:bg-primary/80 hover:scale-105 animate-scale-in" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-                  <Link to="/branch">Đặt lịch ngay</Link>
+                  <Link to="/playertype">Đặt lịch ngay</Link>
                 </Button>
               </div>
             </div>
@@ -143,7 +144,7 @@ const Header = () => {
               <img
                 src={item.img}
                 alt={item.title}
-                className="mb-3 h-16 w-16 object-contain drop-shadow-[0_2px_8px_rgba(252,186,107,0.3)]"
+                className={`mb-3 object-contain drop-shadow-[0_2px_8px_rgba(252,186,107,0.3)] ${(index <= 3) ? 'h-32 w-32' : 'h-16 w-16'}`}
               />
               <span className="text-sm font-medium text-[#2F3C54]">
                 {item.title}
@@ -160,14 +161,26 @@ const Header = () => {
 
               <div className="flex items-end justify-center gap-1">
                 <div className="text-2xl font-bold leading-none text-[#2F3C54]">
-                  70.000 – 140.000
+                  29.000 - 140.000
                 </div>
                 <span className="pb-1 text-sm italic tracking-wider text-[#2F3C54]/80">
                   ₫/h
                 </span>
               </div>
 
-              <Button variant="default" className="bg-[#2F3C54] text-[#f1f1e6] border-[#2F3C54]">Check sân ngay</Button>
+              <Button
+                asChild
+                variant="default"
+                className="bg-[#2F3C54] text-[#f1f1e6] border-[#2F3C54] transition group hover:bg-[#f1f1e6] hover:text-[#2F3C54] hover:border-[#2F3C54]"
+              >
+                <Link
+                  to="/playertype"
+                  className="transition-colors duration-200 group-hover:text-[#2F3C54] group-hover:underline group-hover:underline-offset-4"
+                  style={{ fontWeight: 600 }}
+                >
+                  Check sân ngay
+                </Link>
+              </Button>
 
               <ul className="w-full space-y-2 text-left text-[#2F3C54]/90">
                 {courtPricing.map((item, index) => (

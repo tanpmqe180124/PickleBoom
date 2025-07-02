@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -8,10 +9,15 @@ import {
 } from '@/components/ui/card';
 import { blogCardData } from '@/constant/elementor-data';
 import dayjs from 'dayjs';
+import { useInViewAnimation } from '@/hooks/useInViewAnimation';
 
 export const BlogCard = () => {
+  const [ref, inView] = useInViewAnimation<HTMLDivElement>({ threshold: 0.15 });
   return (
-    <div className="flex items-center justify-center gap-3">
+    <div
+      ref={ref}
+      className={`flex items-center justify-center gap-3 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    >
       {blogCardData.map((item, index) => {
         const Icon = item.footer.icon;
         return (

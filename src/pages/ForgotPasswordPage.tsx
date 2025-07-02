@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ForgotPasswordPage = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f8f9fa]">
-      <div className="w-full max-w-md rounded-2xl bg-white p-10 shadow-xl border border-primary/10">
+      <div className="w-full max-w-md rounded-2xl bg-white p-10 shadow-xl border border-primary/10 animate-fade-in-up" style={{ opacity: 0, transform: 'translateY(32px)', animation: 'fadeInUpSummary 0.7s cubic-bezier(.4,2,.6,1) 0.15s forwards' }}>
         <h2 className="mb-2 text-3xl font-bold text-center text-primary drop-shadow">
           Quên mật khẩu
         </h2>
