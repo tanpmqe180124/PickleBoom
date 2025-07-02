@@ -41,33 +41,33 @@ export const PlayerType = () => {
             {showSubOptions && (
               <div
                 ref={subOptionRef}
-                className="absolute z-30 min-w-[140px] left-full top-1/2 -translate-y-1/2 ml-2 sm:left-1/2 sm:top-full sm:-translate-x-1/2 sm:translate-y-2 sm:ml-0 w-auto sm:w-[90vw] sm:max-w-xs"
+                className="absolute left-full top-1/2 -translate-y-1/2 ml-2 min-w-[140px] z-30"
                 style={{ pointerEvents: 'auto' }}
               >
-                {/* Arrow for desktop, hidden on mobile */}
-                <div className="hidden sm:block" style={{ position: 'absolute', left: '-10px', top: '50%', transform: 'translateY(-50%)' }}>
+                {/* Smaller Arrow */}
+                <div style={{ position: 'absolute', left: '-10px', top: '50%', transform: 'translateY(-50%)' }}>
                   <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 12L0 24V0L12 12Z" fill="#fff" stroke="#2F3C54" strokeWidth="1"/>
                   </svg>
                 </div>
                 <div className="flex flex-col rounded-lg border border-primary/40 bg-white shadow-md animate-fade-in-right overflow-hidden">
                   <button
-                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2F3C54] hover:bg-primary/10 transition border-b border-primary/10 focus:outline-none sm:py-3 sm:text-base sm:px-5"
+                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2F3C54] hover:bg-primary/10 transition border-b border-primary/10 focus:outline-none"
                     style={{ minWidth: 120 }}
                     onClick={() => handleSelectType('member')}
                   >
                     <span className="dot bg-[#2F3C54] animate-pulse" style={{ width: 10, height: 10 }}></span>
                     Hội viên
-                    <ChevronRight size={14} className="ml-auto text-primary hidden sm:inline" />
+                    <ChevronRight size={14} className="ml-auto text-primary" />
                   </button>
                   <button
-                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2F3C54] hover:bg-primary/10 transition focus:outline-none sm:py-3 sm:text-base sm:px-5"
+                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2F3C54] hover:bg-primary/10 transition focus:outline-none"
                     style={{ minWidth: 120 }}
                     onClick={() => handleSelectType('guest')}
                   >
                     <span className="dot bg-[#2F3C54] animate-pulse" style={{ width: 10, height: 10 }}></span>
                     Vãng lai
-                    <ChevronRight size={14} className="ml-auto text-primary hidden sm:inline" />
+                    <ChevronRight size={14} className="ml-auto text-primary" />
                   </button>
                 </div>
               </div>
