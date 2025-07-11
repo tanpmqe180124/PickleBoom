@@ -91,7 +91,7 @@ export const logoHomeItems: LogoItems[] = [
     title: 'Đặt sân – đăng ký chơi dễ dàng online',
   },
   {
-    img: '/img/f7385194-9937-4123-baf7-158c38e1e7ba.png',
+    img: '/img/ChatGPT Image 14_49_07 2 thg 7, 2025.png',
     title: 'Miễn phí tiện ích & hoạt động cộng đồng',
   },
 ];

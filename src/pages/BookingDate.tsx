@@ -1,6 +1,6 @@
 
 import { ChevronLeft } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/booking-date.css';
 import { useInViewAnimation } from '@/hooks/useInViewAnimation';
@@ -18,8 +18,45 @@ const weekdays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 export default function BookingDate() {
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [timeSlots, setTimeSlots] = useState<any[]>([]);
   const navigate = useNavigate();
   const [ref, inView] = useInViewAnimation<HTMLDivElement>({ threshold: 0.12 });
+
+  useEffect(() => {
+    if (selectedDate) {
+      fetch('https://localhost:5005/api/TimeSlot/getAll')
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.data) {
+            setTimeSlots(data.data);
+          } else {
+            setTimeSlots([]);
+          }
+        })
+        .catch(() => setTimeSlots([]));
+    } else {
+      setTimeSlots([]);
+    }
+  }, [selectedDate]);
+
+  const handleNext = async (slot: any) => {
+    try {
+      await fetch('https://localhost:5005/api/TimeSlot/add-timeslot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          startTime: slot.startTime,
+          endTime: slot.endTime,
+        }),
+      });
+      navigate('/booking/date/checkout');
+    } catch (error) {
+      alert('Có lỗi khi đặt timeslot!');
+    }
+  };
+
   return (
     <div className="booking-container">
       {/* Left section */}
@@ -85,18 +122,18 @@ export default function BookingDate() {
         <div className="booking-time-panel show">
           <p className="selected-day">Thursday, June {selectedDate}</p>
           <div className="time-list-vertical">
-            {availableTimes.map((time) => (
-              <div className="time-row" key={time}>
+            {timeSlots.map((slot) => (
+              <div className="time-row" key={slot.id}>
                 <button
-                  className={`time-btn-vertical ${selectedTime === time ? 'active' : ''}`}
-                  onClick={() => setSelectedTime(time)}
+                  className={`time-btn-vertical ${selectedTime === slot.id ? 'active' : ''}`}
+                  onClick={() => setSelectedTime(slot.id)}
                 >
-                  {time}
+                  {slot.startTime} - {slot.endTime}
                 </button>
-                {selectedTime === time && (
+                {selectedTime === slot.id && (
                   <button
                     className="next-button-inline animate"
-                    onClick={() => navigate('/booking/date/checkout')}
+                    onClick={() => handleNext(slot)}
                     style={{ animationDelay: '0.05s' }}
                   >
                     Next

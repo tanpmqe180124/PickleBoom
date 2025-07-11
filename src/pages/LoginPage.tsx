@@ -1,11 +1,62 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
+import { useEffect } from 'react';
+import { ChevronLeft } from 'lucide-react';
 
 const LoginPage = () => {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const verified = location.state?.verified;
+  const { setAccessToken, accessToken } = useAuth();
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/dashboard');
+    }
+    if (verified) {
+      alert('Đăng ký thành công! Hãy đăng nhập.');
+    }
+  }, [accessToken, navigate, verified]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const email = emailRef.current?.value || '';
+    const password = passwordRef.current?.value || '';
+    try {
+      const res = await fetch('https://localhost:5005/api/Account/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+        credentials: 'include', // <-- BẮT BUỘC để nhận cookie refresh_token
+      });
+      const data = await res.json();
+      if (res.ok && data.accessToken) {
+        alert('Đăng nhập thành công!');
+        navigate('/dashboard');
+        setAccessToken(data.accessToken);
+      } else {
+        alert(data.message || 'Đăng nhập thất bại!');
+      }
+    } catch (err) {
+      alert('Lỗi kết nối máy chủ!');
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f8f9fa]">
+    <div className="flex min-h-screen items-center justify-center bg-[#f8f9fa] relative">
+      {/* Nút back về trang trước */}
+      <button
+        className="absolute top-6 left-6 bg-white rounded-full shadow p-2 hover:bg-gray-100 transition"
+        onClick={() => navigate(-1)}
+        title="Quay lại"
+      >
+        <ChevronLeft size={24} />
+      </button>
       <div className="w-full max-w-md rounded-2xl bg-white p-10 shadow-xl border border-primary/10 animate-fade-in-up" style={{ opacity: 0, transform: 'translateY(32px)', animation: 'fadeInUpSummary 0.7s cubic-bezier(.4,2,.6,1) 0.15s forwards' }}>
         <h2 className="mb-2 text-3xl font-bold text-center text-primary drop-shadow">
           Đăng nhập
@@ -13,7 +64,7 @@ const LoginPage = () => {
         <p className="mb-8 text-center text-gray-500 text-sm">
           Chào mừng bạn quay lại! Vui lòng đăng nhập để tiếp tục.
         </p>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <Label htmlFor="email" className="text-primary">
               Email
@@ -24,6 +75,7 @@ const LoginPage = () => {
               className="mt-2"
               placeholder="Nhập email của bạn"
               required
+              ref={emailRef}
             />
           </div>
           <div>
@@ -36,6 +88,7 @@ const LoginPage = () => {
               className="mt-2"
               placeholder="Nhập mật khẩu"
               required
+              ref={passwordRef}
             />
           </div>
           <div className="flex items-center justify-between">

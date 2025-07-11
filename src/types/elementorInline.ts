@@ -31,3 +31,9 @@ export type BlogCard = LogoItems &
   CourtPricingItem & {
     footer: BlogCardFooter;
   };
+
+export type bannerCard = {
+  id: number;
+  title: string;
+  content: string;
+};
